@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgarcia2 <mgarcia2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,43 +12,17 @@
 
 #include <stdio.h>
 
-static size_t	ft_strlen(const char *s)
+int ft_toupper(int c)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
-{
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	i;
-
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	if (size <= dstlen)
-		return (size + srclen);
-	i = 0;
-	while (src[i] && (dstlen + i + 1) < size)
-	{
-		dst[dstlen + i] = src[i];
-		i++;
-	}
-	dst[dstlen + i] = '\0';
-	return (dstlen + srclen);
+  if (c >= 'a' && c <= 'z')
+  {
+    c = c - 32;
+  }
+  return (c);
 }
 /*
-int	main(void)
+int main(void)
 {
-	char	src[] = "origen";
-	char	dest[] = "dest";
-
-	ft_strlcat(dest, src, 40);
-
-	printf("%s", dest);
-}
-*/
+  int letra = 'a';
+  printf("%c", ft_toupper(letra));
+}*/
