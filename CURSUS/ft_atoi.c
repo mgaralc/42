@@ -44,10 +44,10 @@ int ft_atoi(const char *nptr)
   
   return (num * sig);
 }
-
+/*
 int main(void)
 {
   char num[] = "-352";
 
   printf("%d", ft_atoi(num));
-}
+}*/

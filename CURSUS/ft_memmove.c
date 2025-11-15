@@ -34,7 +34,7 @@ void    *ft_memmove(void *dst, const void *src, size_t len)
     }
     return (dst);
 }
-
+/*
 int	main(void)
 {
 	char	str[20] = "ABCDEFGHIJ";
@@ -44,3 +44,4 @@ int	main(void)
 
 	return (0);
 }
+*/

@@ -1,36 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 18:31:13 by miguel            #+#    #+#             */
-/*   Updated: 2025/11/12 18:55:04 by miguel           ###   ########.fr       */
+/*   Created: 2025/11/15 13:18:50 by miguel            #+#    #+#             */
+/*   Updated: 2025/11/15 13:22:00 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-  size_t i;
+	unsigned int	i;
 
-  i = 0;
-  unsigned char *str1 = (unsigned char *)s1;
-  unsigned char *str2 = (unsigned char *)s2;
-  
-  while (i < n && (str1[i] == str2[i]))
-    i++;
-  if (i == n)
-    return (0);
-  return (str1[i] - str2[i]);
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
 /*
-int main(void)
+#include <stdio.h>
+#include "libft.h"
+
+void	to_upper(unsigned int i, char *c)
 {
-	char s1[] = "buscame";
-  char s2[] = "busczme";  
-  
-	printf("%d\n", ft_memcmp(s1, s2, 5));
-}*/
+	(void)i;
+	if (*c >= 'a' && *c <= 'z')
+		*c -= 32;
+}
+
+int	main(void)
+{
+	char str[] = "hola";
+
+	ft_striteri(str, to_upper);
+	printf("%s\n", str); 
+
+	return (0);
+}
+
+*/

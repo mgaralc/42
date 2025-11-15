@@ -23,10 +23,11 @@ int     ft_isprint(int c)
                 return (0);
         }
 }
-
+/*
 int     main(void)
 {
         char ejem = '2';
 
         printf("%d", ft_isprint(ejem));
 }
+*/

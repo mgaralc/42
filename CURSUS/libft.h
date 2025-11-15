@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 10:00:00 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/11/13 13:39:24 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/11/15 12:00:00 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define LIBFT_H
 
 # include <stddef.h>
-# include <stdio.h>
-# include <unistd.h>
 # include <stdlib.h>
-
+# include <unistd.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -51,5 +49,10 @@ int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s);
 
-#endif
+/* nuevas funciones de la parte 2 */
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
 
+#endif
