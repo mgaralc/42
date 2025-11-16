@@ -1,45 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 13:18:50 by miguel            #+#    #+#             */
-/*   Updated: 2025/11/16 10:36:27 by miguel           ###   ########.fr       */
+/*   Created: 2025/11/16 11:20:31 by miguel            #+#    #+#             */
+/*   Updated: 2025/11/16 11:24:52 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_putstr_fd(char *s, int fd)
 {
-	unsigned int	i;
+	int	i;
 
-	if (!s || !f)
+	if (!s)
 		return ;
 	i = 0;
 	while (s[i])
 	{
-		f(i, &s[i]);
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
 }
-/*
-void	to_upper(unsigned int i, char *c)
-{
-	(void)i;
-	if (*c >= 'a' && *c <= 'z')
-		*c -= 32;
-}
-
-int	main(void)
-{
-	char str[] = "hola";
-
-	ft_striteri(str, to_upper);
-	printf("%s\n", str); 
-
-	return (0);
-}
-*/

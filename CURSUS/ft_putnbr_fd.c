@@ -1,45 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 13:18:50 by miguel            #+#    #+#             */
-/*   Updated: 2025/11/16 10:36:27 by miguel           ###   ########.fr       */
+/*   Created: 2025/11/16 11:38:11 by miguel            #+#    #+#             */
+/*   Updated: 2025/11/16 11:42:55 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	i;
+  long  int num = n;
+  
+  if (num < 0)
+  {
+    write(fd, "-", 1);
+    num *= -1;
+  }
 
-	if (!s || !f)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		f(i, &s[i]);
-		i++;
-	}
+  if (num > 9)
+  {
+    ft_putnbr_fd(num / 10, fd);
+  }
+  ft_putchar_fd((num % 10) + '0', fd);
 }
-/*
-void	to_upper(unsigned int i, char *c)
-{
-	(void)i;
-	if (*c >= 'a' && *c <= 'z')
-		*c -= 32;
-}
-
-int	main(void)
-{
-	char str[] = "hola";
-
-	ft_striteri(str, to_upper);
-	printf("%s\n", str); 
-
-	return (0);
-}
-*/
