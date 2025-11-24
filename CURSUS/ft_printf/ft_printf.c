@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 17:52:20 by miguel            #+#    #+#             */
-/*   Updated: 2025/11/24 11:45:15 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/11/24 11:50:56 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	main(void)
 	void	 *ptr;
 
 	c = 'a';
-	str = "Unicorns dose not exists";
+	str = "Escribeme en la terminal";
 	x = 123;
 	ptr = &x;
 	ft_printf("El caracter es %c\n", c);
@@ -80,11 +80,12 @@ int	main(void)
 	ft_printf("Puntero: %p\n", ptr);
 	printf("Puntero: %p\n", ptr);
 	ft_printf("Int max: %d, Int min: %i\n", 0, -521);
-	printf("Int max: %d, Int max: %i\n", 0, 521);
-	ft_printf("Unsigned int: %u\n", 4294967295);
+	printf("Int max: %d, Int max: %i\n", 0, -521);
+	ft_printf("Unsigned int: %u\n", 429496729);
 	printf("Unsigned int: %u\n", 429496729);
 	ft_printf("Hexadecimal en minuscula: %x\n", 255);
 	printf("Hexadecimal en minuscula:: %x\n", 255);
 	ft_printf("Hexadecimal en minuscula: %X\n", 255);
+	printf("Hexadecimal en minuscula:: %X\n", 255);
 }
 */
