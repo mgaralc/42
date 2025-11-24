@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 09:23:01 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/11/22 09:40:03 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/11/24 11:32:18 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ int	ft_putstr(char *s)
 	int	i;
 
 	i = 0;
-	
 	if (!s)
 		s = "(null)";
-
 	while (s[i])
 	{
 		ft_putchar(s[i]);

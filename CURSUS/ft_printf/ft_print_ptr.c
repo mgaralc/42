@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 09:23:52 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/11/22 09:39:54 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/11/24 11:26:17 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_print_ptr(void *ptr)
 	int			cont;
 	uintptr_t	num;
 
+	if (!ptr)
+		return (ft_putstr("(nil)"));
 	num = (uintptr_t)ptr;
 	cont = 0;
 	cont += ft_putstr("0x");

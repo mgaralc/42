@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 09:23:23 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/11/22 09:39:57 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/11/24 10:42:43 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ int	ft_print_hex(uintptr_t n, char *base)
 
 	i = 0;
 	cont = 0;
-	
 	if (n == 0)
 	{
 		ft_putchar('0');
 		return (1);
 	}
-
 	while (n > 0)
 	{
 		rest = n % 16;
@@ -35,7 +33,6 @@ int	ft_print_hex(uintptr_t n, char *base)
 		n /= 16;
 		i++;
 	}
-
 	while (i > 0)
 	{
 		i--;

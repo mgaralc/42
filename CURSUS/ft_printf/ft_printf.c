@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 17:52:20 by miguel            #+#    #+#             */
-/*   Updated: 2025/11/22 09:55:35 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/11/24 11:45:15 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static int	converter(char format, va_list vargs)
 		return (ft_print_hex(va_arg(vargs, unsigned int), "0123456789ABCDEF"));
 	else if (format == '%')
 		return (ft_putchar('%'));
-	
 	return (0);
 }
 
@@ -45,82 +44,47 @@ int	ft_printf(const char *f, ...)
 	i = 0;
 	while (f[i])
 	{
-		if (f[i] != '%')
-		{
-			cont += ft_putchar(f[i]);
-		}
-		else
+		if (f[i] == '%')
 		{
 			if (f[i + 1] == '\0')
 			{
 				cont += ft_putchar('%');
-				va_end(vargs);
-				return (cont);
+				break ;
 			}
-			else
-			{
-				cont += converter(f[i+1], vargs);
-				i++;
-			}
+			cont += converter(f[i + 1], vargs);
+			i++;
 		}
+		else
+			cont += ft_putchar(f[i]);
 		i++;
 	}
 	va_end(vargs);
 	return (cont);
 }
-
+/*
 int	main(void)
 {
-	int             ret_ft;
-	int             ret_ori;
-	char            c = 'A';
-	char            *s = "Hola 42";
-	char            *null_str = NULL;
-	int             d = -4242;
-	int             i = 123456;
-	unsigned int    u = 3000000000u;
-	unsigned int    hex = 0xdeadbeef;
-	void            *ptr = s;
+	char			*str;
+	char			c;
+	int 	x;
+	void	 *ptr;
 
-	ret_ft = ft_printf("TEST %%c -> [%c]\n", c);
-	ret_ori = printf ("TEST %%c -> [%c]\n", c);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%s -> [%s]\n", s);
-	ret_ori = printf ("TEST %%s -> [%s]\n", s);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%s (NULL) -> [%s]\n", null_str);
-	ret_ori = printf ("TEST %%s (NULL) -> [%s]\n", null_str);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%p -> [%p]\n", ptr);
-	ret_ori = printf ("TEST %%p -> [%p]\n", ptr);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%d -> [%d]\n", d);
-	ret_ori = printf ("TEST %%d -> [%d]\n", d);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%i -> [%i]\n", i);
-	ret_ori = printf ("TEST %%i -> [%i]\n", i);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%u -> [%u]\n", u);
-	ret_ori = printf ("TEST %%u -> [%u]\n", u);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%x -> [%x]\n", hex);
-	ret_ori = printf ("TEST %%x -> [%x]\n", hex);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%X -> [%X]\n", hex);
-	ret_ori = printf ("TEST %%X -> [%X]\n", hex);
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	ret_ft = ft_printf("TEST %%%% -> [%%]\n");
-	ret_ori = printf ("TEST %%%% -> [%%]\n");
-	printf("return ft: %d | return ori: %d\n\n", ret_ft, ret_ori);
-
-	return (0);
+	c = 'a';
+	str = "Unicorns dose not exists";
+	x = 123;
+	ptr = &x;
+	ft_printf("El caracter es %c\n", c);
+	printf("El caracter es %c\n", c);
+	ft_printf("String: %s\n", str);
+	printf("String: %s\n", str);
+	ft_printf("Puntero: %p\n", ptr);
+	printf("Puntero: %p\n", ptr);
+	ft_printf("Int max: %d, Int min: %i\n", 0, -521);
+	printf("Int max: %d, Int max: %i\n", 0, 521);
+	ft_printf("Unsigned int: %u\n", 4294967295);
+	printf("Unsigned int: %u\n", 429496729);
+	ft_printf("Hexadecimal en minuscula: %x\n", 255);
+	printf("Hexadecimal en minuscula:: %x\n", 255);
+	ft_printf("Hexadecimal en minuscula: %X\n", 255);
 }
+*/
