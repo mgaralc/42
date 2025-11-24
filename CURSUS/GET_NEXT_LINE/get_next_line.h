@@ -21,6 +21,8 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
+char *extract_line(char *stash);
+char	*clean_stash(char *stash);
 
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
