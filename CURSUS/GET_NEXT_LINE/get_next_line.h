@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/24 12:26:50 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/11/24 12:46:28 by mgarcia2         ###   ########.fr       */
+/*   Created: 2025/11/25 15:02:56 by mgarcia2          #+#    #+#             */
+/*   Updated: 2025/11/25 15:19:28 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-char *extract_line(char *stash);
+char	*extract_line(char *stash);
 char	*clean_stash(char *stash);
 
 size_t	ft_strlen(const char *s);

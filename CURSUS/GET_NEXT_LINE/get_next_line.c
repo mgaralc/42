@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:57:46 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/11/24 14:27:42 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/11/25 15:02:05 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	find_newline(char *stash)
 	int	i;
 
 	if (!stash)
-    return (-1);
+		return (-1);
 	i = 0;
 	while (stash[i] && stash[i] != '\n')
 		i++;
@@ -91,7 +91,6 @@ static char	*safe_join(char *stash, char *buffer)
 	return (tmp);
 }
 
-
 char	*get_next_line(int fd)
 {
 	static char	*stash;
@@ -101,7 +100,7 @@ char	*get_next_line(int fd)
 
 	bytes_read = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-    return (NULL);
+		return (NULL);
 	while (!ft_strchr(stash, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -109,7 +108,7 @@ char	*get_next_line(int fd)
 			return (NULL);
 		buffer[bytes_read] = '\0';
 		stash = safe_join(stash, buffer);
-			if (!stash)
+		if (!stash)
 			return (NULL);
 	}
 	line = extract_line(stash);
