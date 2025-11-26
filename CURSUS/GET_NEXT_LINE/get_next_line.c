@@ -6,25 +6,35 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:57:46 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/11/25 15:02:05 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/11/26 18:30:00 by mgarcia2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/24 11:57:46 by mgarcia2          #+#    #+#             */
+/*   Updated: 2025/11/26 19:30:00 by mgarcia2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/24 11:57:46 by mgarcia2          #+#    #+#             */
+/*   Updated: 2025/11/26 20:00:00 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-static int	find_newline(char *stash)
-{
-	int	i;
-
-	if (!stash)
-		return (-1);
-	i = 0;
-	while (stash[i] && stash[i] != '\n')
-		i++;
-	if (!stash[i])
-		return (-1);
-	return (i + 1);
-}
 
 char	*extract_line(char *stash)
 {
@@ -58,18 +68,18 @@ char	*clean_stash(char *stash)
 	int		i;
 	int		j;
 
-	i = find_newline(stash);
-	if (i == -1)
-	{
-		free(stash);
+	if (!stash)
 		return (NULL);
-	}
-	new = malloc((ft_strlen(stash) - i + 1) * sizeof(char));
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (stash[i] == '\n')
+		i++;
+	if (!stash[i])
+		return (free(stash), NULL);
+	new = malloc((ft_strlen(stash + i) + 1) * sizeof(char));
 	if (!new)
-	{
-		free(stash);
-		return (NULL);
-	}
+		return (free(stash), NULL);
 	j = 0;
 	while (stash[i])
 		new[j++] = stash[i++];
@@ -78,7 +88,7 @@ char	*clean_stash(char *stash)
 	return (new);
 }
 
-static char	*safe_join(char *stash, char *buffer)
+static char	*gnl_join(char *stash, char *buffer)
 {
 	char	*tmp;
 
@@ -91,27 +101,54 @@ static char	*safe_join(char *stash, char *buffer)
 	return (tmp);
 }
 
-char	*get_next_line(int fd)
+static char	*read_to_stash(int fd, char *stash)
 {
-	static char	*stash;
-	char		buffer[BUFFER_SIZE + 1];
+	char		*buffer;
 	ssize_t		bytes_read;
-	char		*line;
 
+	buffer = malloc((size_t)BUFFER_SIZE + 1);
+	if (!buffer)
+		return (free(stash), NULL);
 	bytes_read = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (NULL);
 	while (!ft_strchr(stash, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
-			return (NULL);
+			return (free(buffer), free(stash), NULL);
+		if (bytes_read == 0)
+			break ;
 		buffer[bytes_read] = '\0';
-		stash = safe_join(stash, buffer);
+		stash = gnl_join(stash, buffer);
 		if (!stash)
-			return (NULL);
+			return (free(buffer), NULL);
 	}
+	free(buffer);
+	if ((!stash || !stash[0]) && bytes_read == 0)
+		return (free(stash), NULL);
+	return (stash);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*stash;
+	char		*line;
+
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		free(stash);
+		stash = NULL;
+		return (NULL);
+	}
+	stash = read_to_stash(fd, stash);
+	if (!stash)
+		return (NULL);
 	line = extract_line(stash);
+	if (!line)
+	{
+		free(stash);
+		stash = NULL;
+		return (NULL);
+	}
 	stash = clean_stash(stash);
 	return (line);
 }
