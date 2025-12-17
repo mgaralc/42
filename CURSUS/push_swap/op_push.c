@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 12:19:37 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/16 21:48:34 by mgarcia2         ###   ########.fr       */
+/*   Created: 2025/12/14 13:03:43 by mgarcia2          #+#    #+#             */
+/*   Updated: 2025/12/14 13:32:28 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	push_swap(t_node **a, t_node **b)
+void	pa(t_node **a, t_node **b)
 {
-	int	size;
+	t_node	*aux;
 
-	(void)b;
+	if (!b || !*b)
+		return ;
+	aux = *b;
+	*b = aux->next;
+	aux->next = *a;
+	*a = aux;
+}
+
+void	pb(t_node **a, t_node **b)
+{
+	t_node	*aux;
+
 	if (!a || !*a)
 		return ;
-	if (is_sorted(*a))
-		return ;
-	size = stack_size(*a);
-	if (size == 2)
-		sort_2(a);
-	if (size == 3)
-		sort_3(a);
-	if (size == 4 || size == 5)
-		sort_5(a, b);
-	if (size > 5)
-		sort(a, b);
-	
-	printf(" A\n---\n");
-	while (a)
-	{
-		printf("%d\n", (*a)->value);
-		*a = (*a)->next;
-		
-	}
-	
+	aux = *a;
+	*a = aux->next;
+	aux->next = *b;
+	*b = aux;
 }
