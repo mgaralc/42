@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 13:03:43 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/14 13:32:28 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/12/17 12:37:22 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	pa(t_node **a, t_node **b)
 	*b = aux->next;
 	aux->next = *a;
 	*a = aux;
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_node **a, t_node **b)
@@ -34,4 +35,5 @@ void	pb(t_node **a, t_node **b)
 	*a = aux->next;
 	aux->next = *b;
 	*b = aux;
+	write(1, "pb\n", 3);
 }

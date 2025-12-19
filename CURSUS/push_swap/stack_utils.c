@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 13:34:06 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/14 13:34:07 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:17:05 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ t_node	*node_new(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
+	node->index = 0;
 	node->next = NULL;
 	return (node);
 }
+
 
 void	stack_add_back(t_node **head, t_node **tail, t_node *new_node)
 {
@@ -64,18 +66,7 @@ int	is_sorted(t_node *a)
 	return (1);
 }
 
-void	print_stack(t_node *a, char name)
-{
-	ft_putchar_fd(name, 1);
-	ft_putstr_fd(": ", 1);
-	while (a)
-	{
-		ft_putnbr_fd(a->value, 1);
-		ft_putchar_fd(' ', 1);
-		a = a->next;
-	}
-	ft_putchar_fd('\n', 1);
-}
+
 
 void	free_stack(t_node *a)
 {

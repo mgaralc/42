@@ -6,18 +6,16 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:19:37 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/16 21:48:34 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/12/17 14:07:49 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	push_swap(t_node **a, t_node **b)
 {
-	int	size;
+	int		size;
 
-	(void)b;
 	if (!a || !*a)
 		return ;
 	if (is_sorted(*a))
@@ -25,19 +23,13 @@ void	push_swap(t_node **a, t_node **b)
 	size = stack_size(*a);
 	if (size == 2)
 		sort_2(a);
-	if (size == 3)
+	else if (size == 3)
 		sort_3(a);
-	if (size == 4 || size == 5)
+	else if (size <= 5)
 		sort_5(a, b);
-	if (size > 5)
-		sort(a, b);
-	
-	printf(" A\n---\n");
-	while (a)
+	else
 	{
-		printf("%d\n", (*a)->value);
-		*a = (*a)->next;
-		
+		assign_index(*a);
+		radix_sort(a, b);
 	}
-	
 }

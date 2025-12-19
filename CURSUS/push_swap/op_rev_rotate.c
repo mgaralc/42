@@ -6,52 +6,52 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:45:46 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/14 19:57:18 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:05:42 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_node **a)
+static int	rr_aux(t_node **x)
 {
 	t_node	*prev;
 	t_node	*curr;
 
-	if (!a || !*a || !(*a)->next)
-		return ;
+	if (!x || !*x || !(*x)->next)
+		return (0);
 	prev = NULL;
-	curr = *a;
+	curr = *x;
 	while (curr->next)
 	{
 		prev = curr;
 		curr = curr->next;
 	}
 	prev->next = NULL;
-	curr->next = *a;
-	*a = curr;
+	curr->next = *x;
+	*x = curr;
+	return (1);
+}
+
+
+void	rra(t_node **a)
+{
+	if (rr_aux(a))
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_node **b)
 {
-	t_node	*prev;
-	t_node	*curr;
-
-	if (!b || !*b || !(*b)->next)
-		return ;
-	prev = NULL;
-	curr = *b;
-	while (curr->next)
-	{
-		prev = curr;
-		curr = curr->next;
-	}
-	prev->next = NULL;
-	curr->next = *b;
-	*b = curr;
+	if (rr_aux(b))
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_node **a, t_node **b)
 {
-	rra(a);
-	rrb(b);
+	int	cont;
+
+	cont = 0;
+	cont += rr_aux(a);
+	cont += rr_aux(b);
+	if (cont > 0)
+		write(1, "rrr\n", 4);
 }
