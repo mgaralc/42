@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 13:34:06 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/17 13:17:05 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:42:57 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_node	*node_new(int value)
 	node->next = NULL;
 	return (node);
 }
-
 
 void	stack_add_back(t_node **head, t_node **tail, t_node *new_node)
 {
@@ -65,8 +64,6 @@ int	is_sorted(t_node *a)
 	}
 	return (1);
 }
-
-
 
 void	free_stack(t_node *a)
 {

@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:45:46 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/17 13:05:42 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:40:30 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static int	rr_aux(t_node **x)
 	*x = curr;
 	return (1);
 }
-
 
 void	rra(t_node **a)
 {

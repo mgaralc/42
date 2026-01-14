@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/19 10:41:49 by mgarcia2          #+#    #+#             */
+/*   Updated: 2025/12/19 10:42:02 by mgarcia2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -15,8 +27,7 @@ typedef struct s_node
 int		parse_args(int argc, char **argv, t_node **a);
 int		is_valid_int_str(const char *s);
 int		atoi_safe(const char *s, int *out);
-int	has_duplicate(t_node *a, int value);
-
+int		has_duplicate(t_node *a, int value);
 
 t_node	*node_new(int value);
 void	stack_add_back(t_node **head, t_node **tail, t_node *new_node);

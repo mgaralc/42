@@ -1,8 +1,0 @@
-{
-  "files.associations": {
-    "stdarg.h": "c",
-    "unistd.h": "c",
-    "cstdint": "c",
-    "ft_printf.h": "c"
-  }
-}

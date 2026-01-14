@@ -6,7 +6,7 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:32:04 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/18 17:23:23 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:49:21 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ static void	free_split(char **s)
 	while (s[i])
 		free(s[i++]);
 	free(s);
+}
+
+static int	free_and_fail(char **tokens, int do_free)
+{
+	if (do_free)
+		free_split(tokens);
+	return (1);
 }
 
 static int	get_tokens(int argc, char **argv, char ***tokens)
@@ -52,18 +59,10 @@ static int	build_stack(t_node **a, char **tokens, int do_free)
 	while (tokens[i])
 	{
 		if (atoi_safe(tokens[i], &value) || has_duplicate(*a, value))
-		{
-			if (do_free)
-				free_split(tokens);
-			return (1);
-		}
+			return (free_and_fail(tokens, do_free));
 		new = node_new(value);
 		if (!new)
-		{
-			if (do_free)
-				free_split(tokens);
-			return (1);
-		}
+			return (free_and_fail(tokens, do_free));
 		stack_add_back(a, &tail, new);
 		i++;
 	}

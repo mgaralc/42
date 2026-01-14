@@ -6,10 +6,9 @@
 /*   By: mgarcia2 <mgarcia2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:17:45 by mgarcia2          #+#    #+#             */
-/*   Updated: 2025/12/17 12:22:06 by mgarcia2         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:07:42 by mgarcia2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -32,7 +31,6 @@ void	sort_3(t_node **a)
 	x = (*a)->value;
 	y = (*a)->next->value;
 	z = (*a)->next->next->value;
-
 	if (x > y && x > z)
 		ra(a);
 	else if (y > x && y > z)
@@ -79,7 +77,6 @@ void	sort_5(t_node **a, t_node **b)
 	int	size;
 	int	min;
 	int	pos;
-	int	steps;
 
 	if (!a || !*a)
 		return ;
@@ -89,16 +86,11 @@ void	sort_5(t_node **a, t_node **b)
 		min = find_min(*a);
 		pos = find_pos(*a, min);
 		if (pos <= size / 2)
-		{
 			while (pos-- > 0)
 				ra(a);
-		}
 		else
-		{
-			steps = size - pos;
-			while (steps-- > 0)
+			while (size - pos++ > 0)
 				rra(a);
-		}
 		pb(a, b);
 		size--;
 	}
@@ -106,4 +98,3 @@ void	sort_5(t_node **a, t_node **b)
 	while (*b)
 		pa(a, b);
 }
-
