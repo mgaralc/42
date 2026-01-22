@@ -1,0 +1,21 @@
+Assignment name  : swap_bits
+Expected files   : swap_bits.c
+Allowed functions:
+--------------------------------------------------------------------------------
+
+Escribe una función que tome un byte, intercambie sus mitades (como el ejemplo)
+y devuelva el resultado.
+
+Tu función debe ser declarada de la siguiente manera:
+
+unsigned char	swap_bits(unsigned char octet)
+
+Ejemplo:
+
+  1 byte
+_____________
+ 0100 | 0001
+     \ /
+     / \
+ 0001 | 0100
+--------------------------------------------------------------------------------

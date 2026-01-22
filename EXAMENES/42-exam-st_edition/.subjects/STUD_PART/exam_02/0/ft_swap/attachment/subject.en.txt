@@ -1,0 +1,12 @@
+Assignment name  : ft_swap
+Expected files   : ft_swap.c
+Allowed functions: 
+--------------------------------------------------------------------------------
+
+Escribe una función que intercambie el contenido de dos enteros cuyas
+direcciones se pasan como parámetros.
+
+Tu función debe ser declarada de la siguiente manera:
+
+void	ft_swap(int *a, int *b)
+--------------------------------------------------------------------------------

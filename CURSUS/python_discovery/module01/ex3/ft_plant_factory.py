@@ -1,4 +1,5 @@
 class Plant:
+    """"Define and create the class plant"""
     def __init__(self, nombre, altura, edad):
         self.nombre = nombre
         self.altura = altura

@@ -1,4 +1,5 @@
 if __name__ == "__main__":
+    """"Use main for the first time"""
     plant_name = "Rose"
     plant_height = 25
     plant_age = 30

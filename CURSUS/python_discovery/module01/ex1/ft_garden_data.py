@@ -1,4 +1,5 @@
 class Plant:
+    """Create class plant with atributes"""
     def __init__(self, nombre, altura, edad):
         self.nombre = nombre
         self.altura = altura
@@ -6,6 +7,7 @@ class Plant:
 
 
 if __name__ == "__main__":
+    """"Define the content and show it"""
     planta1 = Plant("Rose", 25, 30)
     planta2 = Plant("Sunflower", 80, 45)
     planta3 = Plant("Cactus", 15, 120)
