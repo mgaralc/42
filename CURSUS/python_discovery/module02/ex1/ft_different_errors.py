@@ -1,8 +1,4 @@
 def garden_operations():
-    """
-    This function demonstrates common garden-related errors.
-    It does NOT handle them.
-    """
     int("abc")
     8 / 0
     open("missing.txt")
