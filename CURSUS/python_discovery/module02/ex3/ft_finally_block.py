@@ -7,7 +7,7 @@ def water_plants(plant_list):
             if not isinstance(plant, str) or plant == "":
                 raise ValueError
             print(f"Watering {plant}")
-    except ValueError: 
+    except ValueError:
         print(f"Error: Cannot water {plant} - invalid plant!")
     finally:
         print("Closing watering system (cleanup)")

@@ -1,15 +1,12 @@
 class GardenError(Exception):
-    """Base exception for all garden-related problems."""
     pass
 
 
 class PlantError(GardenError):
-    """Problems related to plants (inherits from GardenError)."""
     pass
 
 
 class WaterError(GardenError):
-    """Problems related to watering (inherits from GardenError)."""
     pass
 
 
