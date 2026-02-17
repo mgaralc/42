@@ -8,6 +8,12 @@ if __name__ == "__main__":
     except FileNotFoundError:
         print("RESPONSE: Archive not found in storage matrix")
         print("STATUS: Crisis handled, system stable")
+    except PermissionError:
+        print("RESPONSE: Security protocols deny access")
+        print("STATUS: Crisis handled, security maintained")
+    except Exception:
+        print("RESPONSE: Unexpected system anomaly detected")
+        print("STATUS: Crisis handled, system stable")
 
     print("\nCRISIS ALERT: Attempting access to 'classified_vault.txt'...")
     try:
@@ -18,6 +24,9 @@ if __name__ == "__main__":
         print("STATUS: Crisis handled, security maintained")
     except FileNotFoundError:
         print("RESPONSE: Archive not found in storage matrix")
+        print("STATUS: Crisis handled, system stable")
+    except Exception:
+        print("RESPONSE: Unexpected system anomaly detected")
         print("STATUS: Crisis handled, system stable")
 
     print("\nROUTINE ACCESS: Attempting access to 'standard_archive.txt'...")
@@ -32,5 +41,8 @@ if __name__ == "__main__":
     except PermissionError:
         print("RESPONSE: Security protocols deny access")
         print("STATUS: Crisis handled, security maintained")
+    except Exception:
+        print("RESPONSE: Unexpected system anomaly detected")
+        print("STATUS: Crisis handled, system stable")
 
     print("All crisis scenarios handled successfully. Archives secure.")
