@@ -1,0 +1,11 @@
+def artifact_sorter(artifacts: list[dict]) -> list[dict]:
+    return sorted(artifacts, key=lambda artifact: artifact["power"], reverse=True)
+
+def power_filter(mages: list[dict], min_power: int) -> list[dict]
+    return
+
+def spell_transformer(spells: list[str]) -> list[str]
+    return
+
+def mage_stats(mages: list[dict]) -> dict
+    return
